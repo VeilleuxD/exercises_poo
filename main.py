@@ -2,6 +2,7 @@
 david A. V. gr 405
 exercise 1
 """
+print("exercise 1")
 
 
 class StringFoo:
@@ -9,8 +10,51 @@ class StringFoo:
         self.message = message
 
     def print_string(self):
-        print(self.message)
+        print(f"{self.message.upper()}")
 
-david = StringFoo('roger')
-print(david.message)
+
+david = StringFoo('roger roger')
+
 david.print_string()
+
+# exercise 2: le rectangle
+
+print("\n\n\nexercise 2")
+
+
+class Rectangle:
+    def __init__(self, longeur, hauteur):
+        self.aire = None
+        self.longeur = longeur
+        self.hauteur = hauteur
+
+    def calcul_aire(self):
+        self.aire = self.longeur * self.hauteur
+
+        return self.aire
+
+    def afficher_info(self):
+        print(f"Sa longeur est {self.longeur}, sa hauteur est {self.hauteur}\n"
+              f"{self.longeur} * {self.hauteur} = {self.aire} \nSon aire est {self.aire}")
+
+
+livre = Rectangle(15, 9.5)
+livre.calcul_aire()
+livre.afficher_info()
+
+# exercise 3: le cercle
+
+from math import pi
+
+print("\n\n\nexercise 3")
+
+
+class Cercle:
+
+    def __init__(self, rayon):
+        self.rayon = rayon
+        self.circonference = None
+        self.aire = None
+
+    def circonference(self):
+        self.circonference = 55
