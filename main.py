@@ -91,6 +91,6 @@ class Hero:
     def attaquer(self):
         degat = self.attack_power + random.randint(1, 6)
 
-        print(f"vous attaquez pour {degat} dégats")
+        print(f"vous attaquez pour {degat} dégats!")
 
 
