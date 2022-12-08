@@ -2,6 +2,7 @@
 david A. V. gr 405
 exercise 1
 """
+from dataclasses import dataclass
 from math import pi
 import random
 
@@ -82,15 +83,59 @@ print("\n\n\nexercise 4")
 
 class Hero:
 
-    def __init__(self, hp, attack_power, defence, nom):
-        self.hp = hp
-        self.attack_power = attack_power
-        self.defence = defence
+    def __init__(self, hp, attack_power, defence, nom, est_vivant):
+        self.est_vivant = True
+        self.hp = random.randint(1, 10) + random.randint(1, 10)
+        self.attack_power = random.randint(1, 6)
+        self.defence = random.randint(1, 6)
         self.nom = nom
 
     def attaquer(self):
         degat = self.attack_power + random.randint(1, 6)
 
-        print(f"vous attaquez pour {degat} dégats!")
+        print(f"{self.nom} attaque pour {degat} dégats!")
 
+    def endommage(self):
+        dommage = random.randint(1, 6)
+
+        if dommage - self.defence < 0:
+            print(f"{self.nom} recoit 0 dégats")
+        else:
+            self.hp -= dommage - self.defence
+            print(f"{self.nom} recoit {dommage - self.defence} dégats")
+
+    def vivant_check(self):
+        if self.hp <= 0:
+            print(f"{self.nom} est pas vivant")
+            self.est_vivant = False
+        else:
+            print(f"{self.nom} est vivant")
+            self.est_vivant = True
+
+
+bernard = Hero(random.randint(1, 10) + random.randint(1, 10),
+               random.randint(1, 6), random.randint(1, 6), 'Bernard', True)
+
+print(
+    f"il a {bernard.hp} hp.\nson nom est {bernard.nom}\n"
+    f"il a {bernard.defence} défence\nsa force est {bernard.attack_power}")
+
+bernard.attaquer()
+bernard.endommage()
+bernard.vivant_check()
+
+print(f"il a {bernard.hp} hp.")
+
+# exercise 5
+print("\n\n\nexercise 5!!!!!")
+
+
+@dataclass
+class AbilityScore:
+    str = random.randint(1, 20)
+    dex = random.randint(1, 20)
+    con = random.randint(1, 20)
+    int = random.randint(1, 20)
+    sag = random.randint(1, 20)
+    cha = random.randint(1, 20)
 
