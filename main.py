@@ -13,11 +13,15 @@ class StringFoo:
     def __init__(self, message):
         self.message = message
 
+    def set_string(self, message):
+        self.message = message
     def print_string(self):
         print(f"{self.message.upper()}")
 
 
 david = StringFoo('roger roger')
+david.print_string()
+david.set_string('bobette')
 
 david.print_string()
 
